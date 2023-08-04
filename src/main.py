@@ -1,7 +1,5 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.garden.graph import Graph, LinePlot
 from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
 import numpy as np
 import matplotlib.pyplot as plt
@@ -38,7 +36,6 @@ class MainLayout(BoxLayout):
         plotXLabel.set_color(labelColor)
         plt.tick_params(axis='x', colors=labelColor)
 
-
         graph = self.ids.graphLayout.add_widget(FigureCanvasKivyAgg(plt.gcf()))
 
     def on_open_button_released(self):
@@ -49,14 +46,14 @@ NMRApp().run()
 
 '''
 self.graphWidget = Graph(#xmin=float(np.max(xvalues)), xmax=float(np.min(xvalues)),
-                                 xmin=float(np.min(xvalues)), xmax=float(np.max(xvalues)),
-                                 ymin=float(np.min(yvalues)), ymax=float(np.max(yvalues)),
-                                 border_color=[0.75, 0.75, 0.75, 1],
-                                 x_grid_label=True,
-                                 x_ticks_major=2,
-                                 xlabel='ppm')
-        self.ids.graphLayout.add_widget(self.graphWidget)
-        self.plot = LinePlot(color=[0, 0, 0.6, 1], line_width=2)
-        self.plot.points = [(xvalues[i], yvalues[i]) for i in range(xvalues.size)]
-        self.graphWidget.add_plot(self.plot)
+                         xmin=float(np.min(xvalues)), xmax=float(np.max(xvalues)),
+                         ymin=float(np.min(yvalues)), ymax=float(np.max(yvalues)),
+                         border_color=[0.75, 0.75, 0.75, 1],
+                         x_grid_label=True,
+                         x_ticks_major=2,
+                         xlabel='ppm')
+self.ids.graphLayout.add_widget(self.graphWidget)
+self.plot = LinePlot(color=[0, 0, 0.6, 1], line_width=2)
+self.plot.points = [(xvalues[i], yvalues[i]) for i in range(xvalues.size)]
+self.graphWidget.add_plot(self.plot)
 '''
