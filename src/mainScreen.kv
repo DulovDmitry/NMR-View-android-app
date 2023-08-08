@@ -38,6 +38,7 @@
 
             ProgramButton:
                 id: saveButton
+                on_release: root.on_save_button_released()
                 #text: 'save'
                 Image:
                     source: '..\\icons\\save.png'
@@ -56,6 +57,7 @@
 
             ProgramButton:
                 id: infoButton
+                on_release: root.on_info_button_released()
                 #text: 'info'
                 Image:
                     source: '..\\icons\\info.png'
@@ -92,11 +94,24 @@
                     pos: self.pos
                     size: self.size
 
-            InstrumentButton:
+            ToggleButton:
+                id: zoomInButton
+                size_hint_y: None
+                height: self.width
+                background_color: (0, 0, 0, 0)
+                canvas.before:
+                    Color:
+                        rgba: instrumentButtonColor
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [self.height/5]
+                on_press: root.on_zoom_in_button_pressed()
                 text: 'zoom+'
 
             InstrumentButton:
                 text: 'zoom-'
+                on_release: root.on_zoom_out_button_released()
 
             InstrumentButton:
                 text: 'phase'
