@@ -1,9 +1,15 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.popup import Popup
+from kivy.properties import ObjectProperty
 from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
+from kivy.lang import Builder
+
 import numpy as np
 import matplotlib.pyplot as plt
 
+Builder.load_file('mainScreen.kv')
+Builder.load_file('fileChooser.kv')
 
 class NMRApp(App):
 
@@ -40,6 +46,26 @@ class MainLayout(BoxLayout):
 
     def on_open_button_released(self):
         print('open')
+        content = FileChooseLayout(open=self.process_file, cancel=self.dismiss_popup)
+        self._popup = Popup(title="Load file", content=content,
+                            size_hint=(0.9, 0.9))
+        self._popup.open()
+
+    def dismiss_popup(self):
+        self._popup.dismiss()
+
+    def process_file(self, filename):
+        print(f'file {filename} is processed')
+        self.dismiss_popup()
+
+
+class FileChooseLayout(BoxLayout):
+    open = ObjectProperty(None)
+    cancel = ObjectProperty(None)
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        print('aaa')
 
 
 NMRApp().run()

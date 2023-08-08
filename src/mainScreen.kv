@@ -45,14 +45,14 @@
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
 
-            ProgramButton:
-                id: shareButton
-                #text: 'share'
-                Image:
-                    source: '..\\icons\\share.png'
-                    width: self.parent.width * iconScaleFactor
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
+#            ProgramButton:
+#                id: shareButton
+#                #text: 'share'
+#                Image:
+#                    source: '..\\icons\\share.png'
+#                    width: self.parent.width * iconScaleFactor
+#                    center_x: self.parent.center_x
+#                    center_y: self.parent.center_y
 
             ProgramButton:
                 id: infoButton
@@ -93,10 +93,10 @@
                     size: self.size
 
             InstrumentButton:
-                text: 'zoom'
+                text: 'zoom+'
 
             InstrumentButton:
-                text: 'integrate'
+                text: 'zoom-'
 
             InstrumentButton:
                 text: 'phase'
@@ -129,3 +129,4 @@
             size: self.size
             pos: self.pos
             radius: [self.height/5]
+

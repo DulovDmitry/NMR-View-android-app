@@ -1,0 +1,20 @@
+<FileChooseLayout>:
+    BoxLayout:
+        id: fileChooseLayout
+        size_hint: 1, 1
+        orientation: 'vertical'
+
+        FileChooserListView:
+            id: fileChooser
+
+        BoxLayout:
+            size_hint_y: None
+            height: fileChooseLayout.height/10
+            orientation: 'horizontal'
+
+            Button:
+                text: 'open'
+                on_release: root.open(fileChooser.selection)
+            Button:
+                text: 'cancel'
+                on_release: root.cancel()
