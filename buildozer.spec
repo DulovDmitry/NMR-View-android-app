@@ -10,7 +10,7 @@ package.name = myapp
 package.domain = org.test
 
 # (str) Source code where the main.py live
-source.dir = ./src
+source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
@@ -37,7 +37,7 @@ version = 0.2
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,matplotlib,numpy
+requirements = python3==3.10.12,kivy,matplotlib,numpy,pillow,Kivy-Garden==0.1.5
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
