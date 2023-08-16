@@ -101,7 +101,7 @@ class MainLayout(BoxLayout):
         print('touch up', event)
         self.vert_line1.set_visible(False)
         self.vert_line2.set_visible(False)
-        new_borders = self.vert_line1.get_xdata()[0], self.vert_line2.get_xdata()[0]
+        new_borders = self.vert_line1.get_xdata(), self.vert_line2.get_xdata()
         plt.gca().set_xlim(left=max(new_borders), right=min(new_borders))
         self.plot_figure.canvas.draw()
         self.plot_figure.canvas.flush_events()
